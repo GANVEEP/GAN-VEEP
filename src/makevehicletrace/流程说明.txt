@@ -1,0 +1,14 @@
+特此说明训练数据生成的流程，以防忘记
+1.先运行getlaneinformation文件中的主函数，产生D:\vehiclelane1\everyvehicle文件夹下的每个车辆的历史信息
+2.再运行generationtraindata文件的主函数，把所有车辆信息统一存储在D:\vehcilelane1\traindata 文件夹下
+3.执行changenext文件下的主函数，用来把上步产生的信息中跨道路车辆的信息，进行坐标转换，存储到D:\vehcilelane1\finish\okvehicle.txt文件中
+
+此处说明生成预测数据的流程：谨记
+1.运行mainapp文件中的主函数，第23行中会提取一个时间的车辆轨迹，此代码会预测该时刻的下一时刻的车辆轨迹数据。
+2.如果想生成连续的预测数据，就连续的增加第23行的时间，让代码连续预测  
+
+此处说明评估预测数据的流程，切记
+1.在everyroad文件中是评估每条道路的车辆的数量和每条道路的车辆平均速度
+2.everyroad文件生成每条车道的车辆数量和交通速度
+3.getevaluaionMetrics 文件在控制台生成评估数据
+4.getall文件处理所有车辆的轨迹，得到按照轨迹平均的位置和速度差异
